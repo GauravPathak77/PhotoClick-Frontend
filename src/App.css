@@ -1,0 +1,67 @@
+
+body{
+  background-image: url('../public/images/background.jpg');
+  background-size: cover;
+}
+.title {
+  text-align: center;
+  font-family: 'Kalnia', serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4vw;
+  background: #AEC3AE;
+  background: linear-gradient(to left, #AEC3AE 20%, #16FF00 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+table{
+  border: 1px solid black;
+  box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1), 10px 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Dancing Script', cursive;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  background-color: #435334;
+}
+
+thead{
+  background-color: #9EB384;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 2%;
+  font-family: 'Poppins', sans-serif;
+}
+
+td{
+  background-color: #CEDEBD;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 2%;
+  border-radius: 2%;
+}
+.firstCol{
+  background-color: #F3FDE8;
+}
+
+th {
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+hr {
+  height: 50px;
+  width: 30%;
+  position:relative;
+  bottom: 2vw;
+  border:#2A2F4F;
+  border-top: 2px dotted #999;
+}
+
+button{
+  background-color: #84ff00;
+  padding: 5%;
+  border: 1px solid black;
+  border-radius: 10%;
+}
