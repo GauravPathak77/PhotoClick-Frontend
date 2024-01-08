@@ -80,7 +80,12 @@ const AppData = () => {
               <th>Material</th>
               <th>Grade</th>
               <th>Thickness</th>
+              <th>Type</th>
               <th>Comments</th>
+              <th>Weight in pounds</th>
+              <th>Number of Bales</th>
+              <th>IsRebale</th>
+              <th>HasPalate</th>
               <th>Image</th>
             </tr>
           </thead>
@@ -91,7 +96,12 @@ const AppData = () => {
                 <td>{item.material}</td>
                 <td>{item.grade}</td>
                 <td>{item.thickness}</td>
+                <td>{item.selectedType}</td>
                 <td>{item.comments}</td>
+                <td>{item.weight}</td>
+                <td>{item.numBales}</td>
+                <td>{item.isRebale ? 'Yes' : 'No'}</td>
+                <td>{item.hasPalate ? 'Yes' : 'No'}</td>
                 <td><img src={item.image_url}/>
                 <button onClick={()=>{ window.location.href=item.image_url}}>View</button>
                 </td>

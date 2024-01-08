@@ -1,17 +1,31 @@
-
+*{
+  margin: 0px;
+  padding: 0px;
+}
 body{
   background-image: url('../public/images/background.jpg');
-  background-size: cover;
+  background-size:auto;
+  background-repeat: no-repeat;
 }
 .title {
   text-align: center;
   font-family: 'Kalnia', serif;
   font-family: 'Poppins', sans-serif;
   font-size: 4vw;
+  margin-top: 2%;
   background: #AEC3AE;
   background: linear-gradient(to left, #AEC3AE 20%, #16FF00 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+hr {
+  height: 50px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border:#2A2F4F;
+  border-top: 2px dotted #999;
 }
 
 table{
@@ -29,8 +43,13 @@ thead{
   justify-content: center;
   align-items: center;
   width: auto;
-  padding: 2%;
   font-family: 'Poppins', sans-serif;
+  font-size: 1.2vw;
+}
+th {
+  border: 1px solid black;
+  border-radius: 10%;
+  padding: 1vw;
 }
 
 td{
@@ -38,25 +57,13 @@ td{
   justify-content: center;
   align-items: center;
   width: auto;
-  padding: 2%;
+  text-align: center;
+  /* padding: 1%; */
   border-radius: 2%;
+  font-size: 1vw;
 }
 .firstCol{
   background-color: #F3FDE8;
-}
-
-th {
-  border: 1px solid black;
-  border-radius: 10%;
-}
-
-hr {
-  height: 50px;
-  width: 30%;
-  position:relative;
-  bottom: 2vw;
-  border:#2A2F4F;
-  border-top: 2px dotted #999;
 }
 
 button{
