@@ -70,7 +70,9 @@ const AppData = () => {
   return (
 <div>
 {loading ? (
-  <Spinner animation="border" />
+  <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
       ) : (
         <table>
         <thead>

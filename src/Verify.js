@@ -25,6 +25,7 @@ const Verify = () => {
     if (email === 'xyz@gmail.com' && password === '123456') {
       setIsFormSubmitted(true);
     } else {
+      alert("Invalid credentials");
       console.log('error');
     }
   };
