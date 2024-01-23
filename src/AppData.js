@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 import axios from 'axios';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 import { app } from "./firebase";
@@ -68,10 +69,8 @@ const AppData = () => {
 
   return (
 <div>
-<h1 className="title">VIM RECYCLER</h1>
-      <hr/>
 {loading ? (
-        <p>Loading...</p>
+  <Spinner animation="border" />
       ) : (
         <table>
         <thead>

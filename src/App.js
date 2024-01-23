@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
-import AppData from './AppData';
+import Verify from './Verify';
+// import AppData from './AppData';
 
 const App = () => {
 
   return (
     <div>
-    <AppData />
+    <h1 className="title">VIM RECYCLER</h1>
+      <hr/>
+    <Verify />
+    {/* <AppData /> */}
     </div>
   );
 }
