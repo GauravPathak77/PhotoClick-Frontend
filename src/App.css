@@ -106,6 +106,7 @@ input {
   border-radius: 4%;
   max-width: 25vw;
   max-height: 2vw;
+  font-size: small;
 }
 
 .form-button {
@@ -123,4 +124,15 @@ input {
 
 .form-button:hover {
   background-color: #45a049;
+}
+
+img{
+  height: 15vw;
+  width: 15vw;
+}
+
+.view{
+  height: 2.8vw;
+  width: 5vw;
+  font-size: 1vw;
 }

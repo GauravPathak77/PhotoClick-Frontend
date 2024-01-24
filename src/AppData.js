@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from 'axios';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 import { app } from "./firebase";
+// import './App.css';
 
 const AppData = () => {
   const [data, setData] = useState([]);
@@ -16,7 +18,8 @@ const AppData = () => {
   const sendArrayToBackend = async (urls) => {
     try {
       // console.log("Array: ", urls);
-      const response = await axios.post('https://photoclick.onrender.com/api/data', { array: urls });
+      // Change url with url of server
+      const response = await axios.post('http://localhost:5000/api/data', { array: urls });
       setResponseMessage(response.data.success ? 'Array sent successfully' : 'Error sending array');
       fetchData();
     } catch (error) {
@@ -54,7 +57,8 @@ const AppData = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://photoclick.onrender.com/api/data');
+      // Change url with url of server
+      const response = await axios.get('http://localhost:5000/api/data'); 
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -103,8 +107,9 @@ const AppData = () => {
                 <td>{item.numBales}</td>
                 <td>{item.isRebale ? 'Yes' : 'No'}</td>
                 <td>{item.hasPalate ? 'Yes' : 'No'}</td>
-                <td><img src={item.image_url}/>
-                <button onClick={()=>{ window.location.href=item.image_url}}>View</button>
+                <td><img src={item.image_url} />
+                <button 
+                onClick={()=>{ window.location.href=item.image_url}} className='view' >View</button>
                 </td>
               </tr>
             ))}
