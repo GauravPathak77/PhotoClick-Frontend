@@ -109,7 +109,8 @@ const AppData = () => {
                 <td>{item.hasPalate ? 'Yes' : 'No'}</td>
                 <td><img src={item.image_url} />
                 <button 
-                onClick={()=>{ window.location.href=item.image_url}} className='view' >View</button>
+                onClick={()=>{ window.open(item.image_url, '_blank');
+                }} className='view' >View</button>
                 </td>
               </tr>
             ))}
