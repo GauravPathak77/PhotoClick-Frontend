@@ -84,9 +84,9 @@ const AppData = () => {
               <th>S.No.</th>
               <th>Material</th>
               <th>Grade</th>
-              <th>Thickness</th>
+              {/* <th>Thickness</th> */}
               <th>Type</th>
-              <th>Comments</th>
+              {/* <th>Comments</th> */}
               <th>Weight in pounds</th>
               <th>Number of Bales</th>
               <th>IsRebale</th>
@@ -100,9 +100,9 @@ const AppData = () => {
                 <td className="firstCol">{index+1}</td>
                 <td>{item.material}</td>
                 <td>{item.grade}</td>
-                <td>{item.thickness}</td>
+                {/* <td>{item.thickness}</td> */}
                 <td>{item.selectedType}</td>
-                <td>{item.comments}</td>
+                {/* <td>{item.comments}</td> */}
                 <td>{item.weight}</td>
                 <td>{item.numBales}</td>
                 <td>{item.isRebale ? 'Yes' : 'No'}</td>
