@@ -19,7 +19,7 @@ const AppData = () => {
     try {
       // console.log("Array: ", urls);
       // Change url with url of server
-      const response = await axios.post('http://localhost:5000/api/data', { array: urls });
+      const response = await axios.post('https://photoclickbackend-production.up.railway.app/', { array: urls });
       setResponseMessage(response.data.success ? 'Array sent successfully' : 'Error sending array');
       fetchData();
     } catch (error) {
@@ -58,7 +58,7 @@ const AppData = () => {
   const fetchData = async () => {
     try {
       // Change url with url of server
-      const response = await axios.get('http://localhost:5000/api/data'); 
+      const response = await axios.get('https://photoclickbackend-production.up.railway.app/'); 
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
