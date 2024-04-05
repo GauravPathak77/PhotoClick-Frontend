@@ -9,17 +9,17 @@ import { app } from "./firebase";
 const AppData = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [imageList, setImageList] = useState([]);
-  const [inputArray, setInputArray] = useState([]);
+  const [dataList, setDataList] = useState([]);
+  // const [inputArray, setInputArray] = useState([]);
   const [responseMessage, setResponseMessage] = useState('');
-
+  let imageList = [];
   
   // Function to send array to backend
   const sendArrayToBackend = async (urls) => {
     try {
-      // console.log("Array: ", urls);
+      console.log("Array: ", urls);
       // Change url with url of server
-      const response = await axios.post('http://localhost:5000/api/data', { array: urls });
+      const response = await axios.post('http://localhost:5000/api/data', { array: [urls, imageList] });
       setResponseMessage(response.data.success ? 'Array sent successfully' : 'Error sending array');
       fetchData();
     } catch (error) {
@@ -28,27 +28,53 @@ const AppData = () => {
     }
   };
 
-  const getURLs = async () => {
+  const getURLs_data = async () => {
     // Reference to the Firebase Storage bucket
+    getURLs_image();
     const storage = getStorage(app);
     const storageRef = ref(storage, 'text_data');
 
-    // List all items in the Storage bucket
+    // List all data in the Storage bucket
     listAll(storageRef)
       .then((result) => {
         const images = result.items.map((item) => {
           // Get the download URL for each image
-          // console.log("Item: ", item);
+          console.log("Item Data: ", item);
           return getDownloadURL(item);
         });
 
         // Update the state with the list of image URLs
         Promise.all(images).then((urls) => {
           // console.log("URL: ", urls);
-          setImageList(urls);
+          setDataList(urls);
           // Call sendArrayToBackend after updating imageList
-          sendArrayToBackend(urls); 
+          sendArrayToBackend(urls);
         });
+      })
+      .catch((error) => {
+        console.error('Error listing images:', error);
+      });
+  }
+
+  const getURLs_image = async() => {
+    const storage = getStorage(app);
+    const storageRef = ref(storage, 'images/default_user_id');
+
+    // List all data in the Storage bucket
+    listAll(storageRef)
+      .then((result) => {
+        const images_data = result.items.map((item) => {
+          // Get the download URL for each image
+          console.log("Item Image: ", item);
+          return getDownloadURL(item);
+        });
+
+        // Update the state with the list of image URLs
+        Promise.all(images_data).then((urls) => {
+          console.log("URL: ", urls);
+          imageList = urls;
+        });
+        // setImages(images_data);
       })
       .catch((error) => {
         console.error('Error listing images:', error);
@@ -58,8 +84,8 @@ const AppData = () => {
   const fetchData = async () => {
     try {
       // Change url with url of server
-      const response = await axios.get('http://localhost:5000/api/data'); 
-      setData(response.data);
+      const response = await axios.get('http://localhost:5000/api/data');
+        setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -67,8 +93,9 @@ const AppData = () => {
     }
   };
 
+
   useEffect(() => {
-    getURLs();
+    getURLs_data();
   }, []);
 
   return (
